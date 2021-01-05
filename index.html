@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+    
+        <title>Form</title>
+        
+        <link rel="stylesheet" type="text/css" href="form_style.css">
+        
+        <script>
+        
+            function checkFull() { //check validity of full name field
+                
+                var theirFull = document.getElementById("full_name").value;
+                
+                var regex = /^[a-zA-Z]+ [a-zA-Z]+$/;
+                
+                if(!regex.test(theirFull)){
+                    
+                    document.getElementById("fullValid").innerHTML = "Input invalid";
+                    
+                    return false;
+                    
+                }
+                
+                else{
+                    
+                    document.getElementById("fullValid").innerHTML = "";
+                    
+                    return true;
+                
+            }
+                
+            }
+            
+            function checkPass(){ //check matching passwords
+                
+                var pass1 = document.getElementById("password1").value;
+        
+                var pass2 = document.getElementById("password2").value;
+            
+            if(pass1 != pass2){
+                
+                document.getElementById("passValid").innerHTML = "Passwords do not match";
+                
+                return false;
+                
+            }
+            
+            else{
+                
+                document.getElementById("passValid").innerHTML = "";
+                
+                return true;
+            }
+                
+            }
+            
+            function checkEmail(){ //check validity of email field
+                
+                var theirEmail = document.getElementById("email_address").value;
+                
+                var regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                
+                if(!regex.test(theirEmail)){
+                    
+                    document.getElementById("emailValid").innerHTML = "Input invalid";
+                    
+                    return false;
+                    
+                }
+                
+                else{
+                    
+                    document.getElementById("emailValid").innerHTML = "";
+                    
+                    return true;
+                
+            }
+                
+            }
+            
+            <!-- all checks must be true in order to submit properly -->
+            
+            function checkAll(){
+                
+                if(checkEmail() && checkPass() && checkFull()){
+                    
+                    return true;
+                    
+                }
+                
+                else{
+                    
+                    alert("Please fill out fields");
+                    
+                    return false;
+                    
+                }
+            }
+            
+            </script>
+    
+    </head>
+    
+    <body>
+        
+        <h1>The Art Contest Registration</h1>
+        
+        <div class="flex_container">
+            
+            <div class = "flex_form">
+
+        <form action="submitted.html" onsubmit="return checkAll()">
+            
+            <p id="denote"><strong>* denotes a required field</strong></p>
+            
+            <!-- onblur event activated when invalid-->
+            
+            Full name *<br>
+            <input type="text" id="full_name" onblur="checkFull();" required><span id="fullValid"></span>
+            
+            <br>Username *<br>
+            <input type="text" name="username" required>
+            
+            <br>Password *<br>
+            <input type="password" id="password1" required>
+            
+            <!-- onblur event activated when passwords don't match -->
+            
+            <br>Confirm password *<br>
+            <input type="password" id="password2" required onblur="checkPass();"><span id="passValid"></span>
+            
+            <br>Email address *<br>
+            <input type="text" name="email_address" id="email_address" required onblur="checkEmail();"><span id="emailValid"></span>
+            
+            <br>Subscribe to the weekly newsletter<br>
+            <label>
+                
+            <!-- box checked by default -->
+                
+            <input type="checkbox" name="news" id="yes" value="yes" checked>Yes<br></label>
+            
+            <!-- options to choose from instead of radio buttons -->
+            
+            <br>Art medium
+            <select id="medium" name="medium">
+                <option value="digital">Digital</option>
+                <option value="sculpture">Sculpture</option>
+                <option value="music">Music</option>
+                <option value="drawing">Drawing</option>
+                <option value="paint">Paint</option>
+                <option value="other">Other</option>
+            </select>
+            
+            <p>In a paragraph or two, explain what makes your art stand out.<br><textarea rows="4" cols="75" name="message"></textarea></p>
+            
+            <input type="submit" name="Submit">
+            
+        </form>
+            
+        </div>
+            
+        <!-- description next to form -->
+        
+        <div class = "flex_images">
+        
+            <div class = "column1">
+            
+                <a href="https://www.belindamarshallart.com/pencil-drawings/" target="_blank"><img src="drawing.jpg" id="drawing" alt="Pencil sketch of lion"></a>
+                
+                <a href="https://www.masako-music.com/sheet-music/sheet-music-remembrance-63f9y" target="_blank"><img src="music.png" id="music" alt="Sheet music"></a>
+                
+                <a href="https://www.saatchiart.com/art/Painting-Prayers-of-a-Nun/1056873/7919041/view" target="_blank"><img src="painting.jpg" id="painting" alt="Blue abstract painting"></a>
+                
+            </div>
+            
+            <div class = "column2">
+            
+                <a href= "https://poeticamenteflor.tumblr.com/post/162918486869/for-more-line-drawings-check-my-instagram" target="_blank"><img src="digital art.jpg" id="digital" alt="Line art of girl holding flowers"></a>
+                
+                <a href="https://www.novica.com/p/polymer-clay-mother-penguin-sculpture-4/305658/" target="_blank"><img src="sculpture.jpg" id="sculpture" alt="Sculpture of mother penguin with baby"></a>
+                
+                <a href="https://emma-davies-photo.thinkific.com/courses/the-art-of-flower-photography" target="_blank"><img src="photography.jpg" id="photography" alt="Photo of flowers"></a>
+                
+            </div>
+            
+            <div class = "description">
+            
+                <p><em>The Art Contest is an opportunity for artists around the world to submit original artworks of any type. Three lucky winners will be awarded with an all-expenses paid trip to New York City and a $300USD cash prize. Professionals, amateurs, and beginners are welcome to register! Please complete the form by February 1, 2021 in order to receive confirmation for artwork submission.</em></p>
+                
+            </div>
+        
+        </div>
+        
+        </div>
+    
+    </body>
+
+</html>

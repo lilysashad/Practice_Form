@@ -1,0 +1,109 @@
+body{
+    
+    background-color: #72B3F5;
+    
+}
+
+h1{
+    
+    font-family:tahoma;
+    
+    color:#992FE6;
+    
+    padding-left:12px;
+    
+    border: 5px solid #BFF0C7;
+    
+    background: #BFF0C7;
+    
+    width:646px;
+    
+}
+
+.div_form{
+    
+    float:left;
+}
+
+form{
+    
+    border: 3px solid #BFF0C7;
+    
+    padding-left:20px;
+    
+    padding-bottom:15px;
+    
+    font-family: monospace;
+    
+    font-size: 16px;
+    
+    width:640px;
+    
+}
+
+input{
+    
+    padding-right:40px;
+}
+
+submit{
+    
+    padding-left:50px;
+}
+
+#denote{
+    
+    padding-left:5px;
+    
+    color:#F081B4;
+    
+}
+
+#fullValid, #emailValid, #passValid{
+    
+    color:#F081B4;
+    
+    font-size:13px;
+    
+    font-family:tahoma;
+    
+    padding-left: 8px;
+    
+}
+
+.flex_container{
+    
+    display: flex;
+    
+}
+
+.flex_images{
+    
+    float: right;
+    
+    width:700px;
+    
+    padding: 20px;
+    
+    padding-left:90px;
+    
+    display: table;
+    
+    flex-wrap: wrap;
+    
+}
+
+.description{
+    
+    color:#992FE6;
+    
+    width:74%;
+    
+    font-family:tahoma;
+}
+
+#drawing, #sculpture, #music, #digital, #photography, #painting{
+    
+    width:24%;
+    
+}
